@@ -3,13 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Favicon Setup -->
-<link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/4RcX3g4T/Screenshot-2026-03-12-170657.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://i.ibb.co/4RcX3g4T/Screenshot-2026-03-12-170657.png">
-<link rel="apple-touch-icon" sizes="180x180" href="https://i.ibb.co/4RcX3g4T/Screenshot-2026-03-12-170657.png">
-<link rel="shortcut icon" href="https://i.ibb.co/4RcX3g4T/Screenshot-2026-03-12-170657.png">
-    <title>NewCelebrities — Premium Pardha & Women’s Boutique</title>
-    <meta name="keywords" content="NewCelebrities boutique, pardha shop, abaya boutique, modest wear, women tailoring boutique, custom stitching for women, bespoke women tailoring">
+    <title>NewCelebrities — Premium Pardha & Boutique</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
@@ -36,9 +30,6 @@
             border: 1px solid rgba(212, 175, 55, 0.15);
         }
 
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
         .nav-btn.active { color: var(--cream); position: relative; }
         .nav-btn.active::after {
             content: '';
@@ -48,522 +39,136 @@
             width: 100%;
             height: 1px;
             background: var(--gold);
-            opacity: 0.5;
         }
     </style>
 </head>
 <body class="antialiased overflow-x-hidden scroll-smooth">
 
-    <nav class="fixed top-0 w-full z-50 px-6 py-4 flex flex-col md:flex-row justify-between items-center bg-black/80 backdrop-blur-md border-b border-[#D4AF37]/10 gap-4 md:gap-0">
-        <div class="text-xl font-semibold tracking-tighter uppercase text-[#F3E5AB]">
-            NEW<span class="text-[#D4AF37]/60">CELEBRITIES</span>
-        </div>
-        
-        <div class="flex overflow-x-auto w-full md:w-auto gap-6 text-xs uppercase tracking-widest text-[#D4AF37]/70 no-scrollbar justify-start md:justify-center">
-            <button onclick="navigate('home')" class="nav-btn hover:text-[#F3E5AB] transition-colors active" data-page="home">Home</button>
-            <button onclick="navigate('shop')" class="nav-btn hover:text-[#F3E5AB] transition-colors" data-page="shop">Shop</button>
-            <button onclick="navigate('purchase')" class="nav-btn hover:text-[#F3E5AB] transition-colors" data-page="purchase">How to Buy</button>
-            <button onclick="navigate('about')" class="nav-btn hover:text-[#F3E5AB] transition-colors" data-page="about">About</button>
-            <button onclick="navigate('contact')" class="nav-btn hover:text-[#F3E5AB] transition-colors" data-page="contact">Contact</button>
+    <nav class="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-[#D4AF37]/10">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-xl font-semibold tracking-tighter uppercase text-[#F3E5AB]">
+                NEW<span class="text-[#D4AF37]/60">CELEBRITIES</span>
+            </div>
+            
+            <div class="hidden lg:flex gap-8 text-xs uppercase tracking-widest text-[#D4AF37]/70">
+                <button onclick="navigate('home')" class="nav-btn hover:text-[#F3E5AB] active" data-page="home">Home</button>
+                <button onclick="navigate('shop')" class="nav-btn hover:text-[#F3E5AB]" data-page="shop">Shop</button>
+                <button onclick="navigate('about')" class="nav-btn hover:text-[#F3E5AB]" data-page="about">About</button>
+                <button onclick="navigate('contact')" class="nav-btn hover:text-[#F3E5AB]" data-page="contact">Contact</button>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/917902678055" class="lg:flex hidden items-center gap-2 bg-[#D4AF37]/10 px-4 py-2 rounded-full text-[10px] border border-[#D4AF37]/30">
+                    <iconify-icon icon="solar:chat-round-dots-linear"></iconify-icon> WHATSAPP
+                </a>
+                <button class="lg:hidden text-2xl" onclick="toggleMenu()">
+                    <iconify-icon icon="solar:hamburger-menu-linear" id="menu-icon"></iconify-icon>
+                </button>
+            </div>
         </div>
 
-        <div class="hidden md:flex gap-4">
-            <a href="tel:+917902678055" class="flex items-center justify-center w-10 h-10 rounded-full bg-black border border-[#D4AF37]/30 text-[#D4AF37] hover:bg-[#D4AF37]/10 transition-all">
-                <iconify-icon icon="solar:phone-calling-linear" class="text-lg"></iconify-icon>
-            </a>
-            <a href="https://wa.me/917902678055" class="flex items-center justify-center w-10 h-10 rounded-full bg-[#D4AF37] text-black shadow-lg hover:bg-[#F3E5AB] transition-all">
-                <iconify-icon icon="solar:chat-round-dots-linear" class="text-lg"></iconify-icon>
-            </a>
+        <div id="mobile-menu" class="hidden lg:hidden bg-black border-t border-[#D4AF37]/10 flex flex-col items-center py-8 gap-6 text-sm uppercase tracking-widest">
+            <button onclick="navigate('home'); toggleMenu()">Home</button>
+            <button onclick="navigate('shop'); toggleMenu()">Shop</button>
+            <button onclick="navigate('about'); toggleMenu()">About</button>
+            <button onclick="navigate('contact'); toggleMenu()">Contact</button>
         </div>
     </nav>
 
-    <div class="pt-32 pb-20 min-h-screen relative">
-        <div class="absolute top-40 -left-20 w-80 h-80 bg-[#D4AF37] rounded-full mix-blend-screen filter blur-[120px] opacity-10 animate-pulse pointer-events-none"></div>
-        <div class="absolute bottom-40 -right-20 w-80 h-80 bg-[#F3E5AB] rounded-full mix-blend-screen filter blur-[120px] opacity-5 animate-pulse pointer-events-none"></div>
-
-        <section id="home-section" class="page-view block px-6">
+    <main class="pt-32 pb-20">
+        
+        <section id="home-page" class="page-section block px-6">
             <div class="max-w-4xl mx-auto text-center">
-                <span class="inline-block px-4 py-1.5 mb-6 text-xs font-medium tracking-widest uppercase bg-[#D4AF37]/10 rounded-full border border-[#D4AF37]/20">Premium Modest Wear</span>
-                <h1 class="serif text-5xl md:text-7xl font-light tracking-tight mb-8 leading-tight text-[#F3E5AB]">
-                    NewCelebrities — Premium Pardha & <span class="italic text-[#D4AF37]/60">Tailoring Boutique</span>
-                </h1>
-                <p class="text-sm md:text-base text-[#D4AF37]/70 max-w-xl mx-auto mb-12 font-light">
-                    Discover the perfect fit crafted exclusively for you. Explore our premium collection of imported pardhas, custom abayas, and bespoke tailoring.
-                </p>
+                <span class="text-[10px] uppercase tracking-[0.4em] mb-4 block">Est. 2026</span>
+                <h1 class="serif text-5xl md:text-8xl font-light text-[#F3E5AB] mb-6">Pure Elegance.</h1>
+                <p class="text-sm md:text-base text-[#D4AF37]/60 max-w-lg mx-auto mb-10">Premium Pardhas and Abayas tailored to your perfection. We blend Dubai's luxury with bespoke craftsmanship.</p>
+                <button onclick="navigate('shop')" class="bg-[#D4AF37] text-black px-8 py-3 rounded-full text-xs font-bold hover:bg-[#F3E5AB] transition-all">EXPLORE COLLECTION</button>
+            </div>
+        </section>
 
-                <div class="flex justify-center gap-8 mb-16 text-[#F3E5AB]">
-                    <div class="text-center">
-                        <div id="days" class="text-3xl font-light mb-1">00</div>
-                        <div class="text-[10px] uppercase tracking-widest text-[#D4AF37]/50">Days</div>
-                    </div>
-                    <div class="text-center">
-                        <div id="hours" class="text-3xl font-light mb-1">00</div>
-                        <div class="text-[10px] uppercase tracking-widest text-[#D4AF37]/50">Hours</div>
-                    </div>
-                    <div class="text-center">
-                        <div id="minutes" class="text-3xl font-light mb-1">00</div>
-                        <div class="text-[10px] uppercase tracking-widest text-[#D4AF37]/50">Mins</div>
+        <section id="shop-page" class="page-section hidden px-6 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1607582531061-0e1ceaa96d8c?auto=format&fit=crop&q=80&w=600" class="h-80 w-full object-cover">
+                    <div class="p-6">
+                        <h3 class="text-[#F3E5AB] text-lg mb-2">Signature Nida Abaya</h3>
+                        <p class="text-xs text-[#D4AF37]/60 mb-4">₹ 3,499</p>
+                        <a href="https://wa.me/917902678055" class="block text-center border border-[#D4AF37]/30 py-2 rounded-full text-[10px] hover:bg-[#D4AF37] hover:text-black transition-all">ORDER ON WHATSAPP</a>
                     </div>
                 </div>
-
-                <div class="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl border border-[#D4AF37]/20">
-                    <img src="https://images.unsplash.com/photo-1589465885857-44edb59bbff2?auto=format&fit=crop&q=80&w=1600" alt="Elegant Modest Wear" class="w-full h-full object-cover opacity-80">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1589465885857-44edb59bbff2?auto=format&fit=crop&q=80&w=600" class="h-80 w-full object-cover">
+                    <div class="p-6">
+                        <h3 class="text-[#F3E5AB] text-lg mb-2">Blush Layered Set</h3>
+                        <p class="text-xs text-[#D4AF37]/60 mb-4">₹ 4,200</p>
+                        <a href="https://wa.me/917902678055" class="block text-center border border-[#D4AF37]/30 py-2 rounded-full text-[10px] hover:bg-[#D4AF37] hover:text-black transition-all">ORDER ON WHATSAPP</a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="shop-section" class="page-view hidden px-6 max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="serif text-4xl md:text-5xl font-light tracking-tight mb-4 text-[#F3E5AB]">The Pardha Collection</h2>
-                <p class="text-sm text-[#D4AF37]/70 leading-relaxed font-light max-w-2xl mx-auto">Found something you love? Click the WhatsApp button to discuss sizing and delivery.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="glass-card rounded-2xl overflow-hidden group">
-                    <div class="h-80 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1607582531061-0e1ceaa96d8c?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Signature Nida">
-                        <span class="absolute top-4 left-4 bg-[#D4AF37] text-black text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Bestseller</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-medium text-[#F3E5AB] mb-1">Signature Black Nida</h3>
-                        <p class="text-xs text-[#D4AF37]/60 font-light mb-4">Premium Dubai Nida fabric with subtle stonework on sleeves.</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-lg font-light">₹ 3,499</span>
-                            <a href="https://wa.me/917902678055?text=I'm%20interested%20in%20the%20Signature%20Black%20Nida" class="bg-[#D4AF37]/10 hover:bg-[#D4AF37] text-[#D4AF37] hover:text-black px-4 py-2 rounded-full text-xs transition-colors border border-[#D4AF37]/30">Buy via WA</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass-card rounded-2xl overflow-hidden group">
-                    <div class="h-80 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1589465885857-44edb59bbff2?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Blush Abaya">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-medium text-[#F3E5AB] mb-1">Blush Pink Layered Abaya</h3>
-                        <p class="text-xs text-[#D4AF37]/60 font-light mb-4">Elegant double-layered chiffon for special occasions.</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-lg font-light">₹ 4,200</span>
-                            <a href="https://wa.me/917902678055?text=I'm%20interested%20in%20the%20Blush%20Pink%20Abaya" class="bg-[#D4AF37]/10 hover:bg-[#D4AF37] text-[#D4AF37] hover:text-black px-4 py-2 rounded-full text-xs transition-colors border border-[#D4AF37]/30">Buy via WA</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass-card rounded-2xl overflow-hidden group">
-                    <div class="h-80 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1584948834789-f5389658fa2d?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Essential Burkha">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-medium text-[#F3E5AB] mb-1">Classic Everyday Burkha</h3>
-                        <p class="text-xs text-[#D4AF37]/60 font-light mb-4">Breathable crepe fabric designed for daily comfort.</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-lg font-light">₹ 1,899</span>
-                            <a href="https://wa.me/917902678055?text=I'm%20interested%20in%20the%20Classic%20Everyday%20Burkha" class="bg-[#D4AF37]/10 hover:bg-[#D4AF37] text-[#D4AF37] hover:text-black px-4 py-2 rounded-full text-xs transition-colors border border-[#D4AF37]/30">Buy via WA</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass-card rounded-2xl overflow-hidden group">
-                    <div class="h-80 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1596404758783-6f4c39eb4482?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Royal Georgette">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-medium text-[#F3E5AB] mb-1">Royal Embroidered Pardha</h3>
-                        <p class="text-xs text-[#D4AF37]/60 font-light mb-4">Intricate hand-embroidery on premium georgette.</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-lg font-light">₹ 5,100</span>
-                            <a href="https://wa.me/917902678055?text=I'm%20interested%20in%20the%20Royal%20Embroidered%20Pardha" class="bg-[#D4AF37]/10 hover:bg-[#D4AF37] text-[#D4AF37] hover:text-black px-4 py-2 rounded-full text-xs transition-colors border border-[#D4AF37]/30">Buy via WA</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass-card rounded-2xl overflow-hidden group">
-                    <div class="h-80 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1502219684198-faecb33908da?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Beige Abaya">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-medium text-[#F3E5AB] mb-1">Minimalist Beige Abaya</h3>
-                        <p class="text-xs text-[#D4AF37]/60 font-light mb-4">Straight-cut modern design with hidden side pockets.</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-lg font-light">₹ 2,999</span>
-                            <a href="https://wa.me/917902678055?text=I'm%20interested%20in%20the%20Minimalist%20Beige%20Abaya" class="bg-[#D4AF37]/10 hover:bg-[#D4AF37] text-[#D4AF37] hover:text-black px-4 py-2 rounded-full text-xs transition-colors border border-[#D4AF37]/30">Buy via WA</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass-card rounded-2xl overflow-hidden group">
-                    <div class="h-80 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1598522325824-dc2287968516?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Pleated Pardha">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-medium text-[#F3E5AB] mb-1">Pleated Detail Pardha</h3>
-                        <p class="text-xs text-[#D4AF37]/60 font-light mb-4">Unique vertical pleats for a sophisticated silhouette.</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-lg font-light">₹ 3,250</span>
-                            <a href="https://wa.me/917902678055?text=I'm%20interested%20in%20the%20Pleated%20Detail%20Pardha" class="bg-[#D4AF37]/10 hover:bg-[#D4AF37] text-[#D4AF37] hover:text-black px-4 py-2 rounded-full text-xs transition-colors border border-[#D4AF37]/30">Buy via WA</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass-card rounded-2xl overflow-hidden group">
-                    <div class="h-80 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Velvet Border">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-medium text-[#F3E5AB] mb-1">Velvet Border Kaftan</h3>
-                        <p class="text-xs text-[#D4AF37]/60 font-light mb-4">Loose-fit kaftan style with luxurious velvet trimming.</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-lg font-light">₹ 4,750</span>
-                            <a href="https://wa.me/917902678055?text=I'm%20interested%20in%20the%20Velvet%20Border%20Kaftan" class="bg-[#D4AF37]/10 hover:bg-[#D4AF37] text-[#D4AF37] hover:text-black px-4 py-2 rounded-full text-xs transition-colors border border-[#D4AF37]/30">Buy via WA</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass-card rounded-2xl overflow-hidden group">
-                    <div class="h-80 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Moroccan Abaya">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-medium text-[#F3E5AB] mb-1">Moroccan Hooded Abaya</h3>
-                        <p class="text-xs text-[#D4AF37]/60 font-light mb-4">Traditional Moroccan aesthetic with a modern hood.</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-lg font-light">₹ 3,899</span>
-                            <a href="https://wa.me/917902678055?text=I'm%20interested%20in%20the%20Moroccan%20Hooded%20Abaya" class="bg-[#D4AF37]/10 hover:bg-[#D4AF37] text-[#D4AF37] hover:text-black px-4 py-2 rounded-full text-xs transition-colors border border-[#D4AF37]/30">Buy via WA</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass-card rounded-2xl overflow-hidden group">
-                    <div class="h-80 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1544441893-675973eebb41?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Satin Abaya">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-medium text-[#F3E5AB] mb-1">Emerald Satin Abaya</h3>
-                        <p class="text-xs text-[#D4AF37]/60 font-light mb-4">Smooth satin finish for weddings and celebrations.</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-lg font-light">₹ 5,499</span>
-                            <a href="https://wa.me/917902678055?text=I'm%20interested%20in%20the%20Emerald%20Satin%20Abaya" class="bg-[#D4AF37]/10 hover:bg-[#D4AF37] text-[#D4AF37] hover:text-black px-4 py-2 rounded-full text-xs transition-colors border border-[#D4AF37]/30">Buy via WA</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass-card rounded-2xl overflow-hidden group">
-                    <div class="h-80 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1560243563-062bff001d68?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Jacket Abaya">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-medium text-[#F3E5AB] mb-1">Open Jacket Abaya</h3>
-                        <p class="text-xs text-[#D4AF37]/60 font-light mb-4">Two-piece set with a flowy outer layer and inner slip.</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-lg font-light">₹ 4,500</span>
-                            <a href="https://wa.me/917902678055?text=I'm%20interested%20in%20the%20Open%20Jacket%20Abaya" class="bg-[#D4AF37]/10 hover:bg-[#D4AF37] text-[#D4AF37] hover:text-black px-4 py-2 rounded-full text-xs transition-colors border border-[#D4AF37]/30">Buy via WA</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass-card rounded-2xl overflow-hidden group">
-                    <div class="h-80 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1532332248682-206cc786359f?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Travel Abaya">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-medium text-[#F3E5AB] mb-1">Traveler Crepe Pardha</h3>
-                        <p class="text-xs text-[#D4AF37]/60 font-light mb-4">Wrinkle-free fabric, perfect for long journeys.</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-lg font-light">₹ 2,750</span>
-                            <a href="https://wa.me/917902678055?text=I'm%20interested%20in%20the%20Traveler%20Crepe%20Pardha" class="bg-[#D4AF37]/10 hover:bg-[#D4AF37] text-[#D4AF37] hover:text-black px-4 py-2 rounded-full text-xs transition-colors border border-[#D4AF37]/30">Buy via WA</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass-card rounded-2xl overflow-hidden group">
-                    <div class="h-80 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1518331647614-7a1f04cd34cf?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Lace Abaya">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-medium text-[#F3E5AB] mb-1">White Lace Detail Abaya</h3>
-                        <p class="text-xs text-[#D4AF37]/60 font-light mb-4">Soft French lace detailing on the cuffs and hemline.</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-lg font-light">₹ 4,900</span>
-                            <a href="https://wa.me/917902678055?text=I'm%20interested%20in%20the%20White%20Lace%20Abaya" class="bg-[#D4AF37]/10 hover:bg-[#D4AF37] text-[#D4AF37] hover:text-black px-4 py-2 rounded-full text-xs transition-colors border border-[#D4AF37]/30">Buy via WA</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        </div>
-
-
-    <section id="purchase-section" class="page-view hidden px-6 max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="serif text-4xl md:text-5xl font-light tracking-tight mb-4 text-[#F3E5AB]">The Bespoke Journey</h2>
-                <p class="text-sm text-[#D4AF37]/70 leading-relaxed font-light max-w-xl mx-auto">
-                    We combine traditional craftsmanship with modern convenience. Here is how you can bring a NewCelebrities piece into your wardrobe.
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="glass-card p-8 rounded-3xl relative overflow-hidden group hover:border-[#D4AF37]/40 transition-all duration-500">
-                    <div class="absolute -right-2 -top-6 text-9xl text-[#D4AF37]/5 font-serif font-bold group-hover:text-[#D4AF37]/10 transition-colors">1</div>
-                    <div class="relative z-10">
-                        <div class="w-12 h-12 bg-[#D4AF37]/10 rounded-2xl flex items-center justify-center mb-6 border border-[#D4AF37]/20">
-                            <iconify-icon icon="solar: Smartphone-list-linear" class="text-2xl text-[#D4AF37]"></iconify-icon>
-                        </div>
-                        <h3 class="text-lg font-medium text-[#F3E5AB] mb-3 tracking-tight">Browse & Select</h3>
-                        <p class="text-xs text-[#D4AF37]/60 font-light leading-relaxed">
-                            Explore our curated Shop collection. Each piece is designed with premium fabrics like Dubai Nida and Georgette.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="glass-card p-8 rounded-3xl relative overflow-hidden group hover:border-[#D4AF37]/40 transition-all duration-500">
-                    <div class="absolute -right-2 -top-6 text-9xl text-[#D4AF37]/5 font-serif font-bold group-hover:text-[#D4AF37]/10 transition-colors">2</div>
-                    <div class="relative z-10">
-                        <div class="w-12 h-12 bg-[#D4AF37]/10 rounded-2xl flex items-center justify-center mb-6 border border-[#D4AF37]/20">
-                            <iconify-icon icon="solar:chat-round-dots-linear" class="text-2xl text-[#D4AF37]"></iconify-icon>
-                        </div>
-                        <h3 class="text-lg font-medium text-[#F3E5AB] mb-3 tracking-tight">WhatsApp Consult</h3>
-                        <p class="text-xs text-[#D4AF37]/60 font-light leading-relaxed">
-                            Click 'Buy via WA' to start a chat. Send us your height and preferred fit for a personalized styling session.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="glass-card p-8 rounded-3xl relative overflow-hidden group hover:border-[#D4AF37]/40 transition-all duration-500">
-                    <div class="absolute -right-2 -top-6 text-9xl text-[#D4AF37]/5 font-serif font-bold group-hover:text-[#D4AF37]/10 transition-colors">3</div>
-                    <div class="relative z-10">
-                        <div class="w-12 h-12 bg-[#D4AF37]/10 rounded-2xl flex items-center justify-center mb-6 border border-[#D4AF37]/20">
-                            <iconify-icon icon="solar:magic-stick-3-linear" class="text-2xl text-[#D4AF37]"></iconify-icon>
-                        </div>
-                        <h3 class="text-lg font-medium text-[#F3E5AB] mb-3 tracking-tight">Custom Fitting</h3>
-                        <p class="text-xs text-[#D4AF37]/60 font-light leading-relaxed">
-                            Need alterations? Our expert tailors will adjust the hem or sleeves to your exact measurements before shipping.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="glass-card p-8 rounded-3xl relative overflow-hidden group hover:border-[#D4AF37]/40 transition-all duration-500">
-                    <div class="absolute -right-2 -top-6 text-9xl text-[#D4AF37]/5 font-serif font-bold group-hover:text-[#D4AF37]/10 transition-colors">4</div>
-                    <div class="relative z-10">
-                        <div class="w-12 h-12 bg-[#D4AF37]/10 rounded-2xl flex items-center justify-center mb-6 border border-[#D4AF37]/20">
-                            <iconify-icon icon="solar:box-minimalistic-linear" class="text-2xl text-[#D4AF37]"></iconify-icon>
-                        </div>
-                        <h3 class="text-lg font-medium text-[#F3E5AB] mb-3 tracking-tight">Secure Delivery</h3>
-                        <p class="text-xs text-[#D4AF37]/60 font-light leading-relaxed">
-                            Once finalized, your garment is meticulously packed and shipped to your doorstep with secure tracking.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-20 flex flex-col items-center">
-                <div class="h-20 w-px bg-gradient-to-b from-transparent to-[#D4AF37]/30 mb-8"></div>
-                <a href="https://wa.me/917902678055?text=Hello,%20I%20have%20a%20question%20about%20ordering." 
-                   class="group flex items-center gap-4 bg-[#D4AF37] text-black px-10 py-5 rounded-full text-sm font-semibold hover:bg-[#F3E5AB] transition-all shadow-xl shadow-[#D4AF37]/10 active:scale-95">
-                    <iconify-icon icon="solar:chat-round-dots-bold" class="text-xl"></iconify-icon>
-                    START YOUR ORDER NOW
-                </a>
-                <p class="mt-6 text-[10px] uppercase tracking-[0.3em] text-[#D4AF37]/40">Response time: Usually within 1 hour</p>
+        <section id="about-page" class="page-section hidden px-6 max-w-4xl mx-auto text-center">
+            <h2 class="serif text-4xl text-[#F3E5AB] mb-6">Our Heritage</h2>
+            <p class="text-[#D4AF37]/70 leading-relaxed mb-8">NewCelebrities was founded to redefine modest fashion. We believe every woman deserves a garment that reflects her dignity and style, without compromise. Every stitch is handled by master tailors with decades of experience in bespoke women's fashion.</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="glass-card p-4 rounded-xl"><p class="text-xs">Premium Fabric</p></div>
+                <div class="glass-card p-4 rounded-xl"><p class="text-xs">Custom Fit</p></div>
+                <div class="glass-card p-4 rounded-xl"><p class="text-xs">Dubai Imports</p></div>
+                <div class="glass-card p-4 rounded-xl"><p class="text-xs">Global Shipping</p></div>
             </div>
         </section>
 
-        <section id="about-section" class="page-view hidden px-6 max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                
-                <div class="relative">
-                    <div class="aspect-[4/5] rounded-3xl overflow-hidden border border-[#D4AF37]/20 shadow-2xl">
-                        <img src="https://images.unsplash.com/photo-1551028150-64b9f398f678?auto=format&fit=crop&q=80&w=800" 
-                             class="w-full h-full object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-1000" 
-                             alt="Textile Craftsmanship">
-                    </div>
-                    <div class="absolute -bottom-10 -right-6 md:right-10 glass-card p-6 rounded-2xl max-w-[240px] border-[#D4AF37]/30">
-                        <p class="serif text-2xl text-[#D4AF37] mb-1">100%</p>
-                        <p class="text-[10px] uppercase tracking-widest text-[#F3E5AB]/80 leading-tight">Hand-Finished Quality Guarantee</p>
-                    </div>
-                </div>
-
-                <div class="space-y-8">
-                    <div>
-                        <span class="text-[10px] uppercase tracking-[0.4em] text-[#D4AF37] font-semibold">The NewCelebrities Story</span>
-                        <h2 class="serif text-4xl md:text-6xl font-light text-[#F3E5AB] mt-4 mb-6 leading-tight">Where Tradition Meets <span class="italic">Modernity.</span></h2>
-                        <p class="text-sm text-[#D4AF37]/80 leading-relaxed font-light">
-                            Founded on the principle of "Modesty without Compromise," NewCelebrities was born to bridge the gap between traditional pardha values and the sophisticated needs of the modern woman. We don't just sell garments; we craft confidence.
-                        </p>
-                    </div>
-
-                    <div class="space-y-6">
+        <section id="contact-page" class="page-section hidden px-6 max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="serif text-3xl text-[#F3E5AB] mb-6">Visit Our Studio</h3>
+                    <div class="space-y-6 text-sm">
                         <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-10 h-10 rounded-full border border-[#D4AF37]/30 flex items-center justify-center">
-                                <iconify-icon icon="solar:star-fall-minimalistic-linear" class="text-[#D4AF37]"></iconify-icon>
-                            </div>
-                            <div>
-                                <h4 class="text-[#F3E5AB] font-medium text-sm mb-1">Premium Sourcing</h4>
-                                <p class="text-xs text-[#D4AF37]/60 font-light leading-relaxed">We exclusively use Grade-A Dubai Nida and Japanese Crepe, ensuring your garment is breathable, wrinkle-resistant, and drapes beautifully.</p>
-                            </div>
+                            <iconify-icon icon="solar:map-point-linear" class="text-2xl"></iconify-icon>
+                            <p>123 Boutique Street, Luxury Circle, Kerala, India</p>
                         </div>
-
                         <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-10 h-10 rounded-full border border-[#D4AF37]/30 flex items-center justify-center">
-                                <iconify-icon icon="solar:ruler-angular-linear" class="text-[#D4AF37]"></iconify-icon>
-                            </div>
-                            <div>
-                                <h4 class="text-[#F3E5AB] font-medium text-sm mb-1">Tailored for You</h4>
-                                <p class="text-xs text-[#D4AF37]/60 font-light leading-relaxed">Every order is hand-checked and custom-hemmed by our master tailors to match your height perfectly before it leaves our studio.</p>
-                            </div>
+                            <iconify-icon icon="solar:phone-linear" class="text-2xl"></iconify-icon>
+                            <p>+91 7902678055</p>
+                        </div>
+                        <div class="flex gap-4">
+                            <iconify-icon icon="solar:letter-linear" class="text-2xl"></iconify-icon>
+                            <p>hello@newcelebrities.com</p>
                         </div>
                     </div>
-
-                    <div class="pt-6">
-                        <div class="h-px w-20 bg-[#D4AF37]/40 mb-6"></div>
-                        <p class="serif italic text-[#F3E5AB] text-lg">"Excellence is not an act, but a habit."</p>
-                        <p class="text-[10px] uppercase tracking-widest text-[#D4AF37]/50 mt-2">— The NewCelebrities Philosophy</p>
-                    </div>
+                </div>
+                <div class="space-y-4">
+                    <input type="text" placeholder="Your Name" class="w-full bg-white/5 border border-[#D4AF37]/20 p-4 rounded-xl text-white outline-none focus:border-[#D4AF37]">
+                    <textarea placeholder="How can we help?" rows="4" class="w-full bg-white/5 border border-[#D4AF37]/20 p-4 rounded-xl text-white outline-none focus:border-[#D4AF37]"></textarea>
+                    <button class="w-full bg-[#D4AF37] text-black py-4 rounded-xl font-bold">SEND MESSAGE</button>
                 </div>
             </div>
         </section>
 
-        <section id="contact-section" class="page-view hidden px-6 max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
-                
-                <div class="space-y-12">
-                    <div>
-                        <h2 class="serif text-4xl md:text-5xl font-light text-[#F3E5AB] mb-6">Let’s Connect</h2>
-                        <p class="text-sm text-[#D4AF37]/70 leading-relaxed font-light max-w-md">
-                            Whether you have a question about sizing, fabrics, or a custom order, our concierge team is here to assist you.
-                        </p>
-                    </div>
-
-                    <div class="space-y-8">
-                        <div class="group flex items-center gap-6">
-                            <div class="w-14 h-14 rounded-2xl bg-[#D4AF37]/5 border border-[#D4AF37]/20 flex items-center justify-center group-hover:bg-[#D4AF37] transition-all duration-500">
-                                <iconify-icon icon="solar:phone-calling-linear" class="text-2xl text-[#D4AF37] group-hover:text-black"></iconify-icon>
-                            </div>
-                            <div>
-                                <p class="text-[10px] uppercase tracking-widest text-[#D4AF37]/50 mb-1">Call or WhatsApp</p>
-                                <p class="text-[#F3E5AB] font-medium">+91 79026 78055</p>
-                            </div>
-                        </div>
-
-                        <div class="group flex items-center gap-6">
-                            <div class="w-14 h-14 rounded-2xl bg-[#D4AF37]/5 border border-[#D4AF37]/20 flex items-center justify-center group-hover:bg-[#D4AF37] transition-all duration-500">
-                                <iconify-icon icon="solar:letter-linear" class="text-2xl text-[#D4AF37] group-hover:text-black"></iconify-icon>
-                            </div>
-                            <div>
-                                <p class="text-[10px] uppercase tracking-widest text-[#D4AF37]/50 mb-1">Email Inquiry</p>
-                                <p class="text-[#F3E5AB] font-medium">hello@newcelebrities.com</p>
-                            </div>
-                        </div>
-
-                        <div class="group flex items-center gap-6">
-                            <div class="w-14 h-14 rounded-2xl bg-[#D4AF37]/5 border border-[#D4AF37]/20 flex items-center justify-center group-hover:bg-[#D4AF37] transition-all duration-500">
-                                <iconify-icon icon="solar:map-point-linear" class="text-2xl text-[#D4AF37] group-hover:text-black"></iconify-icon>
-                            </div>
-                            <div>
-                                <p class="text-[10px] uppercase tracking-widest text-[#D4AF37]/50 mb-1">Studio Address</p>
-                                <p class="text-[#F3E5AB] font-medium">Kerala, India</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pt-8">
-                        <p class="text-[10px] uppercase tracking-[0.3em] text-[#D4AF37]/40 mb-6">Follow our Journey</p>
-                        <div class="flex gap-4">
-                            <a href="#" class="w-10 h-10 rounded-full border border-[#D4AF37]/20 flex items-center justify-center text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all">
-                                <iconify-icon icon="ri:instagram-line"></iconify-icon>
-                            </a>
-                            <a href="#" class="w-10 h-10 rounded-full border border-[#D4AF37]/20 flex items-center justify-center text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all">
-                                <iconify-icon icon="ri:facebook-fill"></iconify-icon>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass-card p-8 md:p-12 rounded-[2rem] border-[#D4AF37]/20 relative">
-                    <div class="absolute top-0 right-12 w-24 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent"></div>
-                    
-                    <h3 class="serif text-2xl text-[#F3E5AB] mb-8">Send a Quick Message</h3>
-                    
-                    <div class="space-y-6">
-                        <div class="space-y-2">
-                            <label class="text-[10px] uppercase tracking-widest text-[#D4AF37]/60 ml-1">Your Name</label>
-                            <input type="text" placeholder="Ayesha Rahman" class="w-full bg-white/5 border border-[#D4AF37]/10 rounded-xl px-4 py-4 text-white placeholder:text-white/10 focus:outline-none focus:border-[#D4AF37]/50 transition-all">
-                        </div>
-
-                        <div class="space-y-2">
-                            <label class="text-[10px] uppercase tracking-widest text-[#D4AF37]/60 ml-1">Message</label>
-                            <textarea rows="4" placeholder="How can we help you today?" class="w-full bg-white/5 border border-[#D4AF37]/10 rounded-xl px-4 py-4 text-white placeholder:text-white/10 focus:outline-none focus:border-[#D4AF37]/50 transition-all"></textarea>
-                        </div>
-
-                        <button class="w-full bg-[#D4AF37] text-black font-bold py-4 rounded-xl hover:bg-[#F3E5AB] transition-all active:scale-[0.98] shadow-lg shadow-[#D4AF37]/10">
-                            SEND MESSAGE
-                        </button>
-                    </div>
-
-                    <p class="text-center text-[9px] text-[#D4AF37]/40 mt-6 tracking-wider italic">We typically respond within 24 business hours.</p>
-                </div>
-
-            </div>
-        </section>
-
-    
-    <div class="fixed bottom-6 left-6 right-6 z-50 md:hidden flex gap-3">
-        <a href="tel:+917902678055" class="flex-1 bg-black/80 border border-[#D4AF37]/30 text-[#D4AF37] py-4 rounded-2xl flex items-center justify-center gap-2 backdrop-blur-md">
-            <iconify-icon icon="solar:phone-linear"></iconify-icon>
-            <span class="text-xs font-medium uppercase">Call</span>
-        </a>
-        <a href="https://wa.me/917902678055" class="flex-1 bg-[#D4AF37] text-black py-4 rounded-2xl flex items-center justify-center gap-2">
-            <iconify-icon icon="solar:chat-round-dots-linear"></iconify-icon>
-            <span class="text-xs font-medium uppercase">WhatsApp</span>
-        </a>
-    </div>
+    </main>
 
     <script>
-        // Navigation Engine
         function navigate(pageId) {
-            // Update Sections
-            document.querySelectorAll('.page-view').forEach(section => {
+            // Hide all sections
+            document.querySelectorAll('.page-section').forEach(section => {
                 section.classList.add('hidden');
-                section.classList.remove('block');
             });
-            const target = document.getElementById(`${pageId}-section`);
-            if(target) {
-                target.classList.remove('hidden');
-                target.classList.add('block');
-            }
-
-            // Update Nav Buttons
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('active', 'text-[#F3E5AB]');
-                if(btn.getAttribute('data-page') === pageId) {
-                    btn.classList.add('active', 'text-[#F3E5AB]');
-                }
-            });
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Optimized Countdown Logic
-        function startCountdown(targetDate) {
-            const update = () => {
-                const now = new Date().getTime();
-                const distance = targetDate - now;
-
-                if (distance < 0) return;
-
-                const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-
-                document.getElementById('days').innerText = d.toString().padStart(2, '0');
-                document.getElementById('hours').innerText = h.toString().padStart(2, '0');
-                document.getElementById('minutes').innerText = m.toString().padStart(2, '0');
-            };
+            // Show selected section
+            document.getElementById(pageId + '-page').classList.remove('hidden');
             
-            update();
-            setInterval(update, 60000); // Update every minute for performance
+            // Update Nav styling
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.getAttribute('data-page') === pageId) btn.classList.add('active');
+            });
+
+            window.scrollTo(0, 0);
         }
 
-        // Init
-       
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
     </script>
 </body>
 </html>
