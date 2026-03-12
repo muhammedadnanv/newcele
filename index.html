@@ -1,225 +1,352 @@
-<html lang="en" class="scroll-smooth"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NewCelebrities — Women’s Tailoring &amp; Ready-Made Boutique</title>
-    <meta name="keywords" content="NewCelebrities boutique, women tailoring boutique, ladies tailoring shop, custom stitching for women, women ready made boutique, ladies boutique stitching, women clothing boutique, bespoke women tailoring, ladies alteration service, kurti stitching, blouse stitching, salwar suit stitching, maxi dress tailoring, designer ladies boutique, women fashion boutique, ladies fashion tailoring, women tailoring services, women clothing alterations, boutique for women, ready to wear women boutique">
+    <title>NewCelebrities — Premium Pardha & Women’s Boutique</title>
+    <meta name="keywords" content="NewCelebrities boutique, pardha shop, abaya boutique, modest wear, women tailoring boutique, custom stitching for women, bespoke women tailoring">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&amp;family=Plus+Jakarta+Sans:wght@200;300;400;500;600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
     <style>
+        :root {
+            --gold: #D4AF37;
+            --cream: #F3E5AB;
+            --bg-dark: #050505;
+        }
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #fcfbf9;
-            color: #1a1a1a;
+            background-color: var(--bg-dark);
+            color: var(--gold);
         }
-        .serif {
-            font-family: 'Cormorant Garamond', serif;
-        }
+        .serif { font-family: 'Cormorant Garamond', serif; }
+        
         .glass-card {
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(212, 175, 55, 0.03);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.15);
         }
-        input:focus, button:focus {
-            outline: none;
-        }
-        .countdown-item {
-            position: relative;
-        }
-        .countdown-item::after {
-            content: ':';
-            position: absolute;
-            right: -0.75rem;
-            top: 50%;
-            transform: translateY(-50%);
-            opacity: 0.3;
-        }
-        .countdown-item:last-child::after {
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .nav-btn.active { color: var(--cream); position: relative; }
+        .nav-btn.active::after {
             content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--gold);
+            opacity: 0.5;
         }
     </style>
 </head>
-<body class="antialiased overflow-x-hidden">
+<body class="antialiased overflow-x-hidden scroll-smooth">
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 px-6 py-6 flex justify-between items-center bg-white/30 backdrop-blur-md">
-        <div class="text-xl font-semibold tracking-tighter uppercase">
-            NEW<span class="text-neutral-400">CELEBRITIES</span>
+    <nav class="fixed top-0 w-full z-50 px-6 py-4 flex flex-col md:flex-row justify-between items-center bg-black/80 backdrop-blur-md border-b border-[#D4AF37]/10 gap-4 md:gap-0">
+        <div class="text-xl font-semibold tracking-tighter uppercase text-[#F3E5AB]">
+            NEW<span class="text-[#D4AF37]/60">CELEBRITIES</span>
         </div>
-        <div class="flex gap-4">
-            <a href="tel:+917902678055" class="flex items-center justify-center w-10 h-10 rounded-full bg-white border border-neutral-200 shadow-sm transition-transform active:scale-90">
+        
+        <div class="flex overflow-x-auto w-full md:w-auto gap-6 text-xs uppercase tracking-widest text-[#D4AF37]/70 no-scrollbar justify-start md:justify-center">
+            <button onclick="navigate('home')" class="nav-btn hover:text-[#F3E5AB] transition-colors active" data-page="home">Home</button>
+            <button onclick="navigate('shop')" class="nav-btn hover:text-[#F3E5AB] transition-colors" data-page="shop">Shop</button>
+            <button onclick="navigate('purchase')" class="nav-btn hover:text-[#F3E5AB] transition-colors" data-page="purchase">How to Buy</button>
+            <button onclick="navigate('about')" class="nav-btn hover:text-[#F3E5AB] transition-colors" data-page="about">About</button>
+            <button onclick="navigate('contact')" class="nav-btn hover:text-[#F3E5AB] transition-colors" data-page="contact">Contact</button>
+        </div>
+
+        <div class="hidden md:flex gap-4">
+            <a href="tel:+917902678055" class="flex items-center justify-center w-10 h-10 rounded-full bg-black border border-[#D4AF37]/30 text-[#D4AF37] hover:bg-[#D4AF37]/10 transition-all">
                 <iconify-icon icon="solar:phone-calling-linear" class="text-lg"></iconify-icon>
             </a>
-            <a href="https://wa.me/917902678055" class="flex items-center justify-center w-10 h-10 rounded-full bg-neutral-900 text-white shadow-lg transition-transform active:scale-90">
+            <a href="https://wa.me/917902678055" class="flex items-center justify-center w-10 h-10 rounded-full bg-[#D4AF37] text-black shadow-lg hover:bg-[#F3E5AB] transition-all">
                 <iconify-icon icon="solar:chat-round-dots-linear" class="text-lg"></iconify-icon>
             </a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <main class="relative min-h-screen pt-32 pb-20 px-6 flex flex-col items-center justify-center overflow-hidden">
-        <div class="absolute top-40 -left-20 w-80 h-80 bg-rose-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
-        <div class="absolute bottom-40 -right-20 w-80 h-80 bg-amber-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
+    <div class="pt-32 pb-20 min-h-screen relative">
+        <div class="absolute top-40 -left-20 w-80 h-80 bg-[#D4AF37] rounded-full mix-blend-screen filter blur-[120px] opacity-10 animate-pulse pointer-events-none"></div>
+        <div class="absolute bottom-40 -right-20 w-80 h-80 bg-[#F3E5AB] rounded-full mix-blend-screen filter blur-[120px] opacity-5 animate-pulse pointer-events-none"></div>
 
-        <div class="relative z-10 max-w-4xl w-full text-center">
-            <span class="inline-block px-4 py-1.5 mb-6 text-xs font-medium tracking-widest uppercase bg-neutral-100 rounded-full border border-neutral-200">The Art of Fine Stitching</span>
-            <h1 class="serif text-5xl md:text-7xl font-light tracking-tight mb-8 leading-tight">
-                NewCelebrities — Women’s Tailoring &amp; <span class="italic text-neutral-500">Ready-Made Boutique</span>
-            </h1>
-            <p class="text-sm md:text-base text-neutral-500 max-w-xl mx-auto mb-12 leading-relaxed font-light">
-                Discover the perfect fit crafted exclusively for women. From custom bespoke stitching to our curated ready-to-wear collection.
-            </p>
+        <section id="home-section" class="page-view block px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <span class="inline-block px-4 py-1.5 mb-6 text-xs font-medium tracking-widest uppercase bg-[#D4AF37]/10 rounded-full border border-[#D4AF37]/20">Premium Modest Wear</span>
+                <h1 class="serif text-5xl md:text-7xl font-light tracking-tight mb-8 leading-tight text-[#F3E5AB]">
+                    NewCelebrities — Premium Pardha & <span class="italic text-[#D4AF37]/60">Tailoring Boutique</span>
+                </h1>
+                <p class="text-sm md:text-base text-[#D4AF37]/70 max-w-xl mx-auto mb-12 font-light">
+                    Discover the perfect fit crafted exclusively for you. Explore our premium collection of imported pardhas, custom abayas, and bespoke tailoring.
+                </p>
 
-            <!-- Countdown -->
-            <div id="countdown" class="flex justify-center gap-8 mb-16">
-                <div class="countdown-item">
-                    <div class="text-3xl font-light mb-1 tracking-tighter" id="days">00</div>
-                    <div class="text-[0.6rem] uppercase tracking-widest text-neutral-400">Days</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="text-3xl font-light mb-1 tracking-tighter" id="hours">00</div>
-                    <div class="text-[0.6rem] uppercase tracking-widest text-neutral-400">Hours</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="text-3xl font-light mb-1 tracking-tighter" id="minutes">00</div>
-                    <div class="text-[0.6rem] uppercase tracking-widest text-neutral-400">Mins</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="text-3xl font-light mb-1 tracking-tighter" id="seconds">00</div>
-                    <div class="text-[0.6rem] uppercase tracking-widest text-neutral-400">Secs</div>
-                </div>
-            </div>
-
-            <div class="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl border border-white/50">
-                <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg" alt="Fabric details" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-neutral-900/10"></div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Services Grid -->
-    <section class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-            <div class="max-w-xl">
-                <h2 class="serif text-4xl font-light tracking-tight mb-4 text-neutral-800">Bespoke Services</h2>
-                <p class="text-sm text-neutral-500 leading-relaxed font-light">Translating your unique style into garments that fit like a second skin.</p>
-            </div>
-            <a href="https://wa.me/917902678055" class="group flex items-center gap-2 text-sm font-medium tracking-tight">
-                Inquire via WhatsApp
-                <iconify-icon icon="solar:arrow-right-up-linear" class="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></iconify-icon>
-            </a>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="group glass-card rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-1">
-                <div class="h-64 overflow-hidden">
-                    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4734259a-bad7-422f-981e-ce01e79184f2_1600w.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Custom Stitching">
-                </div>
-                <div class="p-8">
-                    <div class="mb-4 text-neutral-400">
-                        <iconify-icon icon="solar:pen-new-square-linear" class="text-2xl"></iconify-icon>
+                <div class="flex justify-center gap-8 mb-16 text-[#F3E5AB]">
+                    <div class="text-center">
+                        <div id="days" class="text-3xl font-light mb-1">00</div>
+                        <div class="text-[10px] uppercase tracking-widest text-[#D4AF37]/50">Days</div>
                     </div>
-                    <h3 class="serif text-2xl font-light mb-3">Custom Stitching</h3>
-                    <p class="text-sm text-neutral-500 font-light leading-relaxed">Unique designs tailored to your measurements. Bridal, casual, and ethnic wear.</p>
-                </div>
-            </div>
-
-            <div class="group glass-card rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-1">
-                <div class="h-64 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?auto=format&amp;fit=crop&amp;q=80&amp;w=800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Alterations">
-                </div>
-                <div class="p-8">
-                    <div class="mb-4 text-neutral-400">
-                        <iconify-icon icon="solar:scissors-square-linear" class="text-2xl"></iconify-icon>
+                    <div class="text-center">
+                        <div id="hours" class="text-3xl font-light mb-1">00</div>
+                        <div class="text-[10px] uppercase tracking-widest text-[#D4AF37]/50">Hours</div>
                     </div>
-                    <h3 class="serif text-2xl font-light mb-3">Expert Alterations</h3>
-                    <p class="text-sm text-neutral-500 font-light leading-relaxed">Perfecting the pieces you already love with precise and virtually invisible modifications.</p>
-                </div>
-            </div>
-
-            <div class="group glass-card rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-1">
-                <div class="h-64 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&amp;fit=crop&amp;q=80&amp;w=800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Ready Made">
-                </div>
-                <div class="p-8">
-                    <div class="mb-4 text-neutral-400">
-                        <iconify-icon icon="solar:bag-heart-linear" class="text-2xl"></iconify-icon>
+                    <div class="text-center">
+                        <div id="minutes" class="text-3xl font-light mb-1">00</div>
+                        <div class="text-[10px] uppercase tracking-widest text-[#D4AF37]/50">Mins</div>
                     </div>
-                    <h3 class="serif text-2xl font-light mb-3">Ready-Made</h3>
-                    <p class="text-sm text-neutral-500 font-light leading-relaxed">Shop our signature collection of premium kurtis and ethnic wear, ready to wear.</p>
+                </div>
+
+                <div class="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl border border-[#D4AF37]/20">
+                    <img src="https://images.unsplash.com/photo-1589465885857-44edb59bbff2?auto=format&fit=crop&q=80&w=1600" alt="Elegant Modest Wear" class="w-full h-full object-cover opacity-80">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact & Lead Capture -->
-    <section class="py-24 px-6 bg-neutral-900 text-white rounded-t-[3rem] mt-12">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="serif text-4xl md:text-5xl font-light tracking-tight mb-8">Connect With Us</h2>
-            <p class="text-neutral-400 text-sm md:text-base font-light mb-12 max-w-lg mx-auto leading-relaxed">
-                Join our private list for launch updates and exclusive boutique offers.
-            </p>
+        <section id="shop-section" class="page-view hidden px-6 max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="serif text-4xl md:text-5xl font-light tracking-tight mb-4 text-[#F3E5AB]">The Pardha Collection</h2>
+                <p class="text-sm text-[#D4AF37]/70 leading-relaxed font-light max-w-2xl mx-auto">Found something you love? Click the WhatsApp button to discuss sizing and delivery.</p>
+            </div>
             
-            <form class="flex flex-col md:flex-row gap-4 max-w-xl mx-auto mb-16">
-                <input type="email" placeholder="Email or Phone" class="flex-grow bg-white/10 border border-white/10 rounded-full px-6 py-4 text-sm focus:border-white/30 transition-all placeholder:text-neutral-500" required="">
-                <button type="submit" class="bg-white text-neutral-900 px-10 py-4 rounded-full text-sm font-medium hover:bg-neutral-200 transition-colors">Notify Me</button>
-            </form>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-80 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1607582531061-0e1ceaa96d8c?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Signature Nida">
+                        <span class="absolute top-4 left-4 bg-[#D4AF37] text-black text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Bestseller</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium text-[#F3E5AB] mb-1">Signature Black Nida</h3>
+                        <p class="text-xs text-[#D4AF37]/60 font-light mb-4">Premium Dubai Nida fabric with subtle stonework on sleeves.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-lg font-light">₹ 3,499</span>
+                            <a href="https://wa.me/917902678055?text=I'm%20interested%20in%20the%20Signature%20Black%20Nida" class="bg-[#D4AF37]/10 hover:bg-[#D4AF37] text-[#D4AF37] hover:text-black px-4 py-2 rounded-full text-xs transition-colors border border-[#D4AF37]/30">Buy via WA</a>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="pt-12 border-t border-white/10">
-                <div class="flex flex-col items-center gap-4">
-                    <span class="text-xs uppercase tracking-[0.3em] text-neutral-500">Direct Inquiries</span>
-                    <div class="flex flex-col md:flex-row gap-8 mt-2">
-                        <a href="tel:+917902678055" class="group flex items-center gap-3 hover:text-neutral-300 transition-colors">
-                            <iconify-icon icon="solar:phone-linear" class="text-xl text-neutral-500 group-hover:text-white transition-colors"></iconify-icon>
-                            <span class="text-lg md:text-xl font-light tracking-tight">+91 79026 78055</span>
-                        </a>
-                        <a href="https://wa.me/917902678055" class="group flex items-center gap-3 hover:text-emerald-400 transition-colors">
-                            <iconify-icon icon="solar:chat-round-dots-linear" class="text-xl text-neutral-500 group-hover:text-emerald-400 transition-colors"></iconify-icon>
-                            <span class="text-lg md:text-xl font-light tracking-tight">WhatsApp Chat</span>
-                        </a>
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1589465885857-44edb59bbff2?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Blush Abaya">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium text-[#F3E5AB] mb-1">Blush Pink Layered Abaya</h3>
+                        <p class="text-xs text-[#D4AF37]/60 font-light mb-4">Elegant double-layered chiffon for special occasions.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-lg font-light">₹ 4,200</span>
+                            <a href="https://wa.me/917902678055?text=I'm%20interested%20in%20the%20Blush%20Pink%20Abaya" class="bg-[#D4AF37]/10 hover:bg-[#D4AF37] text-[#D4AF37] hover:text-black px-4 py-2 rounded-full text-xs transition-colors border border-[#D4AF37]/30">Buy via WA</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1584948834789-f5389658fa2d?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Essential Burkha">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium text-[#F3E5AB] mb-1">Classic Everyday Burkha</h3>
+                        <p class="text-xs text-[#D4AF37]/60 font-light mb-4">Breathable crepe fabric designed for daily comfort.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-lg font-light">₹ 1,899</span>
+                            <a href="https://wa.me/917902678055?text=I'm%20interested%20in%20the%20Classic%20Everyday%20Burkha" class="bg-[#D4AF37]/10 hover:bg-[#D4AF37] text-[#D4AF37] hover:text-black px-4 py-2 rounded-full text-xs transition-colors border border-[#D4AF37]/30">Buy via WA</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1596404758783-6f4c39eb4482?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Royal Georgette">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium text-[#F3E5AB] mb-1">Royal Embroidered Pardha</h3>
+                        <p class="text-xs text-[#D4AF37]/60 font-light mb-4">Intricate hand-embroidery on premium georgette.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-lg font-light">₹ 5,100</span>
+                            <a href="https://wa.me/917902678055?text=I'm%20interested%20in%20the%20Royal%20Embroidered%20Pardha" class="bg-[#D4AF37]/10 hover:bg-[#D4AF37] text-[#D4AF37] hover:text-black px-4 py-2 rounded-full text-xs transition-colors border border-[#D4AF37]/30">Buy via WA</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1502219684198-faecb33908da?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Beige Abaya">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium text-[#F3E5AB] mb-1">Minimalist Beige Abaya</h3>
+                        <p class="text-xs text-[#D4AF37]/60 font-light mb-4">Straight-cut modern design with hidden side pockets.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-lg font-light">₹ 2,999</span>
+                            <a href="https://wa.me/917902678055?text=I'm%20interested%20in%20the%20Minimalist%20Beige%20Abaya" class="bg-[#D4AF37]/10 hover:bg-[#D4AF37] text-[#D4AF37] hover:text-black px-4 py-2 rounded-full text-xs transition-colors border border-[#D4AF37]/30">Buy via WA</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1598522325824-dc2287968516?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Pleated Pardha">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium text-[#F3E5AB] mb-1">Pleated Detail Pardha</h3>
+                        <p class="text-xs text-[#D4AF37]/60 font-light mb-4">Unique vertical pleats for a sophisticated silhouette.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-lg font-light">₹ 3,250</span>
+                            <a href="https://wa.me/917902678055?text=I'm%20interested%20in%20the%20Pleated%20Detail%20Pardha" class="bg-[#D4AF37]/10 hover:bg-[#D4AF37] text-[#D4AF37] hover:text-black px-4 py-2 rounded-full text-xs transition-colors border border-[#D4AF37]/30">Buy via WA</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Velvet Border">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium text-[#F3E5AB] mb-1">Velvet Border Kaftan</h3>
+                        <p class="text-xs text-[#D4AF37]/60 font-light mb-4">Loose-fit kaftan style with luxurious velvet trimming.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-lg font-light">₹ 4,750</span>
+                            <a href="https://wa.me/917902678055?text=I'm%20interested%20in%20the%20Velvet%20Border%20Kaftan" class="bg-[#D4AF37]/10 hover:bg-[#D4AF37] text-[#D4AF37] hover:text-black px-4 py-2 rounded-full text-xs transition-colors border border-[#D4AF37]/30">Buy via WA</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Moroccan Abaya">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium text-[#F3E5AB] mb-1">Moroccan Hooded Abaya</h3>
+                        <p class="text-xs text-[#D4AF37]/60 font-light mb-4">Traditional Moroccan aesthetic with a modern hood.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-lg font-light">₹ 3,899</span>
+                            <a href="https://wa.me/917902678055?text=I'm%20interested%20in%20the%20Moroccan%20Hooded%20Abaya" class="bg-[#D4AF37]/10 hover:bg-[#D4AF37] text-[#D4AF37] hover:text-black px-4 py-2 rounded-full text-xs transition-colors border border-[#D4AF37]/30">Buy via WA</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1544441893-675973eebb41?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Satin Abaya">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium text-[#F3E5AB] mb-1">Emerald Satin Abaya</h3>
+                        <p class="text-xs text-[#D4AF37]/60 font-light mb-4">Smooth satin finish for weddings and celebrations.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-lg font-light">₹ 5,499</span>
+                            <a href="https://wa.me/917902678055?text=I'm%20interested%20in%20the%20Emerald%20Satin%20Abaya" class="bg-[#D4AF37]/10 hover:bg-[#D4AF37] text-[#D4AF37] hover:text-black px-4 py-2 rounded-full text-xs transition-colors border border-[#D4AF37]/30">Buy via WA</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1560243563-062bff001d68?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Jacket Abaya">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium text-[#F3E5AB] mb-1">Open Jacket Abaya</h3>
+                        <p class="text-xs text-[#D4AF37]/60 font-light mb-4">Two-piece set with a flowy outer layer and inner slip.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-lg font-light">₹ 4,500</span>
+                            <a href="https://wa.me/917902678055?text=I'm%20interested%20in%20the%20Open%20Jacket%20Abaya" class="bg-[#D4AF37]/10 hover:bg-[#D4AF37] text-[#D4AF37] hover:text-black px-4 py-2 rounded-full text-xs transition-colors border border-[#D4AF37]/30">Buy via WA</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1532332248682-206cc786359f?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Travel Abaya">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium text-[#F3E5AB] mb-1">Traveler Crepe Pardha</h3>
+                        <p class="text-xs text-[#D4AF37]/60 font-light mb-4">Wrinkle-free fabric, perfect for long journeys.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-lg font-light">₹ 2,750</span>
+                            <a href="https://wa.me/917902678055?text=I'm%20interested%20in%20the%20Traveler%20Crepe%20Pardha" class="bg-[#D4AF37]/10 hover:bg-[#D4AF37] text-[#D4AF37] hover:text-black px-4 py-2 rounded-full text-xs transition-colors border border-[#D4AF37]/30">Buy via WA</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1518331647614-7a1f04cd34cf?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Lace Abaya">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium text-[#F3E5AB] mb-1">White Lace Detail Abaya</h3>
+                        <p class="text-xs text-[#D4AF37]/60 font-light mb-4">Soft French lace detailing on the cuffs and hemline.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-lg font-light">₹ 4,900</span>
+                            <a href="https://wa.me/917902678055?text=I'm%20interested%20in%20the%20White%20Lace%20Abaya" class="bg-[#D4AF37]/10 hover:bg-[#D4AF37] text-[#D4AF37] hover:text-black px-4 py-2 rounded-full text-xs transition-colors border border-[#D4AF37]/30">Buy via WA</a>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="py-12 px-6 bg-neutral-900 text-neutral-500 text-center border-t border-white/5">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-            <p class="text-[0.7rem] uppercase tracking-[0.2em] font-light">© 2024 NewCelebrities Boutique.</p>
-            <a href="https://adwebcomicagency.vercel.app/" class="text-[0.7rem] uppercase tracking-[0.2em] font-light hover:text-white transition-colors">
-                Website engineered by Ad Web Comic Agency
-            </a>
-        </div>
-    </footer>
-
-    <!-- Mobile CTA Bar -->
     <div class="fixed bottom-6 left-6 right-6 z-50 md:hidden flex gap-3">
-        <a href="tel:+917902678055" class="flex-1 bg-white border border-neutral-200 py-4 rounded-2xl flex items-center justify-center gap-2 shadow-xl active:scale-95 transition-transform">
-            <iconify-icon icon="solar:phone-linear" class="text-xl"></iconify-icon>
-            <span class="text-xs font-medium uppercase tracking-wider">Call</span>
+        <a href="tel:+917902678055" class="flex-1 bg-black/80 border border-[#D4AF37]/30 text-[#D4AF37] py-4 rounded-2xl flex items-center justify-center gap-2 backdrop-blur-md">
+            <iconify-icon icon="solar:phone-linear"></iconify-icon>
+            <span class="text-xs font-medium uppercase">Call</span>
         </a>
-        <a href="https://wa.me/917902678055" class="flex-1 bg-neutral-900 text-white py-4 rounded-2xl flex items-center justify-center gap-2 shadow-xl active:scale-95 transition-transform">
-            <iconify-icon icon="solar:chat-round-dots-linear" class="text-xl"></iconify-icon>
-            <span class="text-xs font-medium uppercase tracking-wider">WhatsApp</span>
+        <a href="https://wa.me/917902678055" class="flex-1 bg-[#D4AF37] text-black py-4 rounded-2xl flex items-center justify-center gap-2">
+            <iconify-icon icon="solar:chat-round-dots-linear"></iconify-icon>
+            <span class="text-xs font-medium uppercase">WhatsApp</span>
         </a>
     </div>
 
     <script>
-        const targetDate = new Date();
-        targetDate.setDate(targetDate.getDate() + 14);
+        // Navigation Engine
+        function navigate(pageId) {
+            // Update Sections
+            document.querySelectorAll('.page-view').forEach(section => {
+                section.classList.add('hidden');
+                section.classList.remove('block');
+            });
+            const target = document.getElementById(`${pageId}-section`);
+            if(target) {
+                target.classList.remove('hidden');
+                target.classList.add('block');
+            }
 
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
+            // Update Nav Buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active', 'text-[#F3E5AB]');
+                if(btn.getAttribute('data-page') === pageId) {
+                    btn.classList.add('active', 'text-[#F3E5AB]');
+                }
+            });
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
-            document.getElementById("days").innerText = String(days).padStart(2, '0');
-            document.getElementById("hours").innerText = String(hours).padStart(2, '0');
-            document.getElementById("minutes").innerText =</script></body></html>
+        // Optimized Countdown Logic
+        function startCountdown(targetDate) {
+            const update = () => {
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+
+                if (distance < 0) return;
+
+                const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+                document.getElementById('days').innerText = d.toString().padStart(2, '0');
+                document.getElementById('hours').innerText = h.toString().padStart(2, '0');
+                document.getElementById('minutes').innerText = m.toString().padStart(2, '0');
+            };
+            
+            update();
+            setInterval(update, 60000); // Update every minute for performance
+        }
+
+        // Init
+        const ramadan = new Date("March 30, 2026 00:00:00").getTime();
+        startCountdown(ramadan);
+    </script>
+</body>
+</html>
